@@ -1,0 +1,111 @@
+<!--Profile page-->
+
+<!DOCTYPE html>
+<!--Start of Bootstrap CDN-->
+				<!-- Latest compiled and minified CSS -->
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+				<!-- jQuery library -->
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+				<!-- Popper JS -->
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+				<!-- Latest compiled JavaScript -->
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+					
+				</script>
+<!--End of Bootstrap CDN-->
+    
+    <html>
+      
+      <head>
+      <style>		
+                  
+
+       h1{	color:black;
+       		text-align:center;}
+       	
+       	p{text-align: center}
+       
+      </style>
+      </head>
+
+<body>
+        <h1>My Profile</h1>
+        <img src="profile_background.JPG" class="img-fluid">
+       	<p>Create a profile so you can save all your records.</p>  	
+
+<!--Start of Name-->
+   	<form>
+  			<div class="row">
+	    		<div class="col">
+	     			 <input type="text" class="form-control" placeholder="First name">
+	    		</div>
+	   			<div class="col">
+	      			<input type="text" class="form-control" placeholder="Last name">
+	    		</div>
+  			</div>
+<!--End of Name-->
+  			<br>
+
+<!--Start of About Me-->
+      	<div class="form-group">
+    	       <p>About Me</p>
+    			<textarea class="form-control" id="About_Me" placeholder="Tell us a little about yourself."></textarea>
+  			</div>
+      </form>
+<!--End of About Me-->
+
+
+<!--Start of Avaliability-->
+<form> 
+<div class="row">
+  <div class="col">
+    <p2>What kind of gamer are you?</p2>
+       <div class="form-check">
+
+  <style>
+  div{
+    
+    margin-right: 75px;
+    margin-left: 75px;
+  }
+  </style>
+            <input class="form-check-input" type="radio" name="Availibilty" id="Availibilty_1" value="option_1" >
+            <label class="form-check-label" for="Availibilty_1">
+              Casual, I sometimes play
+            </label>
+        </div>
+        
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="Availibilty" id="Availibilty_2" value="option_2" >
+            <label class="form-check-label" for="Availibilty_2">
+             I like a little competiton
+            </label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="Availibilty" id="Availibilty_3" value="option_3" >
+            <label class="form-check-label" for="Availibilty_3">
+              Competitive
+            </label>
+        </div>
+
+        <p>Times in top 10: </p>
+        <p>Number of Wins: </p>
+
+        
+  </div>
+<!--End of Availibilty-->
+
+
+  </div>
+</form>
+<!--End of Equipment-->
+
+
+
+
+</body>
+</html>
