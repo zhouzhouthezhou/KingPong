@@ -11,9 +11,9 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
  
-/*server.listen(port, hostname, () => {
+server.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
-});*/
-server.listen(3000, function () {
-  console.log(`Listening on ${server.address().port}`);
 });
+/*server.listen(3000, function () {
+  console.log(`Listening on ${server.address().port}`);
+});*/

@@ -29,13 +29,13 @@ function preload (){
 
 function create (){
 	//create paddle1
-	paddle1 = this.physics.add.sprite(400, 500, 'paddle1');
+	paddle1 = this.physics.add.sprite(400, 550, 'paddle1');
 	paddle1.enableBody = true;
 	paddle1.setCollideWorldBounds(true);
 	paddle1.setImmovable(true);
 
 	//create paddle2
-	paddle2 = this.physics.add.sprite(400, 100, 'paddle2');
+	paddle2 = this.physics.add.sprite(400, 50, 'paddle2');
 	paddle2.enableBody = true;
 	paddle2.setCollideWorldBounds(true);
 	paddle2.setImmovable(true);
@@ -45,6 +45,7 @@ function create (){
 	ball.enableBody = true;
 	ball.setVelocity(0,250);
 	ball.allowRotation = true;
+	ball.setCollideWorldBounds(true);
 	//ball.setBounce(1.4);
 
 	//add collision boxes
@@ -75,7 +76,7 @@ function ballHitPaddle(paddle1, ball){
 
 	var offset = randomNum(-100, 100);
 	var direction = randomInt(0, 2);
-	var speedCoefficient = -1.05
+	var speedCoefficient = -1.01
 
 
 	if(direction == 0){
