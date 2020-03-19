@@ -112,7 +112,3 @@ function randomNum(min, max){
 function randomInt(min, max){
 	return Math.floor(Math.random() * (max - min)) + min;
 }
-    </script>
-
-</body>
-</html>
