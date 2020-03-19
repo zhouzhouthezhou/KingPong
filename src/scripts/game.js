@@ -72,12 +72,16 @@ function update (){
 function ballHitPaddle(paddle1, ball){
 	var x = ball.body.velocity.x;
 	var y = ball.body.velocity.y;
+
 	var offset = randomNum(-100, 100);
 	var direction = randomInt(0, 2);
+	var speedCoefficient = -1.05
+
+
 	if(direction == 0){
-		ball.setVelocity((x+offset), -1.05*y)
+		ball.setVelocity((x+offset), speedCoefficient*y)
 	}else{
-		ball.setVelocity(-1*(x+offset), -1.05*y)
+		ball.setVelocity(-1*(x+offset), speedCoefficient*y)
 	}
 }
 
