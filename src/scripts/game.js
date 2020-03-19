@@ -22,15 +22,12 @@ var x;
 
 function preload ()
 {
-	/*
-	this.load.image('ball', 'assets/ball.png')
-	this.load.image('paddle', 'assets/paddle.png');
-	*/
+	this.load.image('ball', '../assets/ball.png')
+	this.load.image('paddle', '../assets/paddle.png');
 }
 
 function create ()
 {
-	/*
 	paddle = this.physics.add.sprite(400, 500, 'paddle');
 	paddle.setCollideWorldBounds(true);
 	paddle.setImmovable(true);
@@ -39,11 +36,9 @@ function create ()
 	ball.setVelocity(0,250);
 	ball.setBounce(2);
 	this.physics.add.collider(paddle,ball);
-	*/
 }
 function update ()
 {
-/*
   if (cursors.left.isDown)
   {
 	  paddle.setVelocityX(-200);
@@ -56,5 +51,4 @@ function update ()
   {
 	  paddle.setVelocityX(0);
   }
-  */
 }
