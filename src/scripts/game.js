@@ -1,7 +1,12 @@
+var width = 800;
+var height = 600;
+var centerX = width/2;
+var centerY = height/2;
+
 var config = {
 	type: Phaser.AUTO,
-	width: 800,
-	height: 600,
+	width: width,
+	height: height,
 	physics: {
 		default: 'arcade',
 		arcade: {
@@ -15,6 +20,7 @@ var config = {
 	}
 };
 var game = new Phaser.Game(config);
+var ngon
 var cursors;
 var paddle1;
 var paddle2;
@@ -32,12 +38,15 @@ function preload (){
 }
 
 function create (){
+	ngon = this.add.graphics({ x: 0, y: 0 });
+	generateGon(10, ngon);
+
 	//create paddle1
 	paddle1 = this.physics.add.sprite(400, 550, 'paddle1');
 	paddle1.enableBody = true;
 	paddle1.setCollideWorldBounds(true);    
 	paddle1.setImmovable(true);
-    
+	
 	//create paddle2
 	paddle2 = this.physics.add.sprite(400, 50, 'paddle2');    
 	paddle2.enableBody = true;    
@@ -65,7 +74,18 @@ function create (){
 	cursors = this.input.keyboard.createCursorKeys();
 }
 
+var counter = 3;
+
 function update (){
+	if(Phaser.Input.Keyboard.JustDown(cursors.left)){
+		if(counter == 10){
+			counter = 3;
+		}else{
+			counter++;
+		}
+		ngon.clear()
+		generateGon(counter, ngon);
+	}
 	if (cursors.left.isDown){
 		paddle1.setVelocityX(-200);
 		paddle2.setVelocityX(-200);
@@ -86,7 +106,7 @@ function update (){
 		ball.setVelocity(0,-250);
 		score1++;
 		scoreText1.setText('Score: ' + score1);
-      }
+	  }
 }
 
 function ballHitPaddle(paddle1, ball){
@@ -103,6 +123,37 @@ function ballHitPaddle(paddle1, ball){
 	}else{
 		ball.setVelocity(-1*(x+offset), speedCoefficient*y)
 	}
+}
+
+function generateGon(n, graphics){
+	var verticies = [];
+	var scale = 200;
+	var angle = (2*Math.PI)/n;
+
+	for(i = 1; i <= n; i++){
+		h = i * angle;
+		var x = (scale * Math.cos(h)) + centerX;
+		var y = (scale * Math.sin(h)) + centerY;
+		verticies.push(x);
+		verticies.push(y);
+	}
+
+	var polygon = new Phaser.Geom.Polygon(verticies);
+
+	graphics.lineStyle(2, 0x00aa00);
+
+	graphics.beginPath();
+
+	graphics.moveTo(polygon.points[0].x, polygon.points[0].y);
+
+	for (var i = 1; i < polygon.points.length; i++)
+	{
+		graphics.lineTo(polygon.points[i].x, polygon.points[i].y);
+	}
+
+	graphics.closePath();
+	graphics.strokePath();
+	return graphics
 }
 
 function randomNum(min, max){
