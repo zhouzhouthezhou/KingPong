@@ -20,7 +20,8 @@ var config = {
 	}
 };
 var game = new Phaser.Game(config);
-var ngon
+var ngon;
+var polygon;
 var cursors;
 var paddle1;
 var paddle2;
@@ -42,19 +43,19 @@ function create (){
 	generateGon(10, ngon);
 
 	//create paddle1
-	paddle1 = this.physics.add.sprite(400, 550, 'paddle1');
-	paddle1.enableBody = true;
-	paddle1.setCollideWorldBounds(true);    
-	paddle1.setImmovable(true);
+	//paddle1 = this.physics.add.sprite(400, 550, 'paddle1');
+	//paddle1.enableBody = true;
+	//paddle1.setCollideWorldBounds(true);    
+	//paddle1.setImmovable(true);
 	
 	//create paddle2
-	paddle2 = this.physics.add.sprite(400, 50, 'paddle2');    
-	paddle2.enableBody = true;    
-	paddle2.setCollideWorldBounds(true);    
-	paddle2.setImmovable(true);
+	//paddle2 = this.physics.add.sprite(400, 50, 'paddle2');    
+	//paddle2.enableBody = true;    
+	//paddle2.setCollideWorldBounds(true);    
+	//paddle2.setImmovable(true);
    
 	//create ball    
-	ball = this.physics.add.sprite(400,250,'ball').setScale(0.5);    
+	ball = this.physics.add.sprite(400,50,'ball').setScale(0.5);    
 	ball.enableBody = true;    
 	ball.setVelocity(0,250);
 	ball.allowRotation = true;
@@ -62,8 +63,8 @@ function create (){
 	//ball.setBounce(1.4);
 
 	//add collision boxes
-	this.physics.add.overlap(paddle1, ball, ballHitPaddle, null, this)
-	this.physics.add.overlap(paddle2, ball, ballHitPaddle, null, this)
+	//this.physics.add.overlap(paddle1, ball, ballHitPaddle, null, this)
+	//this.physics.add.overlap(paddle2, ball, ballHitPaddle, null, this)
 	//this.physics.add.collider(paddle1, ball)
 	//this.physics.add.collider(paddle2, ball)
 	score1 =0;
@@ -86,30 +87,35 @@ function update (){
 		ngon.clear()
 		generateGon(counter, ngon);
 	}
-	if (cursors.left.isDown){
-		paddle1.setVelocityX(-200);
-		paddle2.setVelocityX(-200);
-	}else if (cursors.right.isDown){
-		paddle1.setVelocityX(200);
-		paddle2.setVelocityX(200);
+
+	if(Phaser.Geom.Polygon.Contains(polygon, centerX, centerY)){
 	}else{
-		paddle1.setVelocityX(0);
-		paddle2.setVelocityX(0);
 	}
-	if (ball.body.position.y <=5 ) {
-		ball.setPosition(400,250);
-		ball.setVelocity(0,250);
-		score2++;
-		scoreText2.setText('Score: ' + score2);
-	} else if (ball.body.position.y >= 570) {
-		ball.setPosition(400,250);
-		ball.setVelocity(0,-250);
-		score1++;
-		scoreText1.setText('Score: ' + score1);
-	  }
+	//if (cursors.left.isDown){
+		//paddle1.setVelocityX(-200);
+		//paddle2.setVelocityX(-200);
+	//}else if (cursors.right.isDown){
+		//paddle1.setVelocityX(200);
+		//paddle2.setVelocityX(200);
+	//}else{
+		//paddle1.setVelocityX(0);
+		//paddle2.setVelocityX(0);
+	//}
+	//if (ball.body.position.y <=5 ) {
+		//ball.setPosition(400,250);
+		//ball.setVelocity(0,250);
+		//score2++;
+		//scoreText2.setText('Score: ' + score2);
+	//} else if (ball.body.position.y >= 570) {
+		//ball.setPosition(400,250);
+		//ball.setVelocity(0,-250);
+		//score1++;
+		//scoreText1.setText('Score: ' + score1);
+	  //}
 }
 
 function ballHitPaddle(paddle1, ball){
+	console.log('hello world')
 	var x = ball.body.velocity.x;
 	var y = ball.body.velocity.y;
 
@@ -138,21 +144,23 @@ function generateGon(n, graphics){
 		verticies.push(y);
 	}
 
-	var polygon = new Phaser.Geom.Polygon(verticies);
+	polygon = new Phaser.Geom.Polygon(verticies);
+
 
 	graphics.lineStyle(2, 0x00aa00);
+	graphics.strokePoints(polygon.points, true);
 
-	graphics.beginPath();
+	//graphics.beginPath();
 
-	graphics.moveTo(polygon.points[0].x, polygon.points[0].y);
+	//graphics.moveTo(polygon.points[0].x, polygon.points[0].y);
 
-	for (var i = 1; i < polygon.points.length; i++)
-	{
-		graphics.lineTo(polygon.points[i].x, polygon.points[i].y);
-	}
+	//for (var i = 1; i < polygon.points.length; i++)
+	//{
+		//graphics.lineTo(polygon.points[i].x, polygon.points[i].y);
+	//}
 
-	graphics.closePath();
-	graphics.strokePath();
+	//graphics.closePath();
+	//graphics.strokePath();
 	return graphics
 }
 
@@ -163,3 +171,4 @@ function randomNum(min, max){
 function randomInt(min, max){
 	return Math.floor(Math.random() * (max - min)) + min;
 }
+
