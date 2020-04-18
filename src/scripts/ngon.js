@@ -1,5 +1,5 @@
-var width = 800;
-var height = 600;
+var width = 1000;
+var height = 1000;
 var centerX = width/2;
 var centerY = height/2;
 
@@ -74,7 +74,7 @@ function update (){
 
 function generateGon(n, graphics){
 	var verticies = [];
-	var scale = 200;
+	var scale = 300;
 	var angle = (2*Math.PI)/n;
 
 	for(i = 1; i <= n; i++){
