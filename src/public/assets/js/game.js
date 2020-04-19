@@ -27,6 +27,7 @@ var bottom;
 var gameWon;
 var score;
 var timer;
+var temp;
 class WorldScene extends Phaser.Scene {
   constructor() {
     super({
@@ -116,6 +117,7 @@ class WorldScene extends Phaser.Scene {
   }
   
   createBall(ballInfo) {
+    console.log("ball")
     ball = this.physics.add.sprite(ballInfo.x,ballInfo.y,'ball').setScale(0.5);    
     ball.enableBody = true;    
     ball.setVelocity(0,250);
@@ -124,9 +126,13 @@ class WorldScene extends Phaser.Scene {
     this.physics.add.overlap(this.player, ball, this.ballHitPaddle, null, this);
   }
   createPlayer(playerInfo) {
+    console.log("paddle")
     // our player sprite created through the physics system
-    this.player = this.add.sprite(playerInfo.x, playerInfo.y, 'player'/*, 6*/);
+    this.player = this.physics.add.sprite(playerInfo.x, playerInfo.y, 'player'/*, 6*/);
     this.player.enableBody = true;
+    this.player.setCollideWorldBounds(true)
+
+    //this.player = temp
 
   }
   
@@ -154,13 +160,6 @@ class WorldScene extends Phaser.Scene {
 	  }
   }
 
-  randomNum(min, max){
-	  return Math.random() * (max - min) + min;
-  }
-
-  randomInt(min, max){
-	  return Math.floor(Math.random() * (max - min)) + min;
-  }
 
   endGame() {
     if (!gameWon) {
@@ -244,7 +243,29 @@ class WorldScene extends Phaser.Scene {
     } else if (cursors.right.isDown) {
       this.player.x += delta/4;
     } 
+    //if (temp) {
+      //var x = temp.x;
+      //if (temp.oldPosition && x!= temp.oldPosition.x) {
+        //this.socket.emit('playerMovement', x);
+      //}
+      //temp.oldPosition = {
+        //x: temp.x,
+      //};
+    //}
+
+    //if (cursors.left.isDown) {
+      //temp.x -= delta/4;
+    //} else if (cursors.right.isDown) {
+      //temp.x += delta/4;
+    //} 
   }
+}
+function randomNum(min, max){
+  return Math.random() * (max - min) + min;
+}
+
+function randomInt(min, max){
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 var config = {
