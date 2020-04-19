@@ -137,7 +137,7 @@ class WorldScene extends Phaser.Scene {
   }
   
   addOtherPlayers(playerInfo,) {
-    const otherPlayer = this.add.sprite(playerInfo.x, playerInfo.y, 'player'/*, 9*/);
+    const otherPlayer = this.physics.add.sprite(playerInfo.x, playerInfo.y, 'player'/*, 9*/);
     otherPlayer.playerId = playerInfo.playerId;
     this.otherPlayers.add(otherPlayer);
   }
