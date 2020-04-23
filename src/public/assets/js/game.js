@@ -146,14 +146,14 @@ class WorldScene extends Phaser.Scene {
         caught = false;
         console.log("x,y velocity",velocity.x,velocity.y);
         ball.setVelocity(velocity.x,velocity.y);
-        if ( velocity.bottom ) {
+        if ( ball.body.y <= 50  && !(ball.body.y >= 550)) {
           if(!pointWon) {
-            bottomScore+= 0.25;
+            bottomScore+= 1;
             bottomScoreText.setText('Score: ' + Math.floor(bottomScore));
           }
-        } else {
+        } else if ( ball.body.y >= 550 && !(ball.body.y <= 50)) {
           if (!pointWon) {
-            topScore+= 0.25;
+            topScore+= 1;
             topScoreText.setText('Score: ' + Math.floor(topScore));
           }
         }
@@ -290,7 +290,7 @@ class WorldScene extends Phaser.Scene {
   }
 
   update(time,delta) {
-    if (bottomScore - topScore > 10 || topScore-bottomScore > 10) {
+    if (bottomScore - topScore > 5 || topScore-bottomScore > 5) {
       if (!gameWon) {
         gameWon = true;
         this.gameOver();
@@ -306,12 +306,40 @@ class WorldScene extends Phaser.Scene {
       // } else {
       //   this.socket.emit('diffBallLocation');
       // }
-      if (ball.body.y <= 30) {
-        this.socket.emit('pointWon');
-        this.socket.emit('ballRestart',{x:0,y:250, bottom: true});
+      if (ball.body.y <= 15) {
+        var clear = true;
+        if (!((ball.body.x < this.player.x-40)||(ball.body.x > this.player.x+40))) {
+          clear = false;
+          console.log('not clear');
+        }
+        this.otherPlayers.getChildren().forEach(function (player) {
+          if (!((ball.body.x < player.x - 40)||(ball.body.x > player.x+40))) {
+            clear = false;
+            console.log('not clear');
+          }
+        });
+        if (clear) {
+          this.socket.emit('pointWon');
+          this.socket.emit('ballRestart',{x:0,y:250, currentY: ball.body.y, bottom: true});
+          console.log('restarting');
+        }
       } else if (ball.body.y >= 570) {
-        this.socket.emit('pointWon');
-        this.socket.emit('ballRestart',{x:0,y:250, bottom: false});
+        var clear = true;
+        if (!((ball.body.x < this.player.x-25)||(ball.body.x > this.player.x+25))) {
+          clear = false;
+          console.log('not clear');
+        }
+        this.otherPlayers.getChildren().forEach(function (player) {
+          if (!((ball.body.x < player.x - 25)||(ball.body.x > player.x+25))) {
+            clear = false;
+            console.log('not clear');
+          }
+        });
+        if (clear) {
+          this.socket.emit('pointWon');
+          this.socket.emit('ballRestart',{x:0,y:250, currentY: ball.body.y, bottom: true});
+          console.log('restarting');
+        }
       }
     }
     if (this.player) {
