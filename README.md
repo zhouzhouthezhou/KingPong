@@ -1,6 +1,6 @@
 # KingPong
 
-Welcome to KingPong, the online multiplayer pong game. Everyone starts defending their own side with their paddle. Guard your side, because you won't last if your opponenent gains too much on you. If you or your opponent has more than 5 points than you, the game ends, and you will be ranked against all players of the game.
+Welcome to KingPong, the online multiplayer pong game. Everyone starts defending their own side with their paddle. Guard your side, because you won't last if your opponenent gains too much on you. If you or your opponent has more than 5 points than the other, the game ends, and you will be ranked against all players of the game.
 
 #### Authors
 * Antonio Narro
