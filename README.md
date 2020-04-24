@@ -51,4 +51,4 @@ This project is based around a NodeJS server and Websocket.io (see app.js), and 
 * https://stackoverflow.com/questions/41318354/mongodb-failed-to-connect-to-server-on-first-connect/48449732
 And generally: 
 * https://phaser.io/
-* medium.com
+* https://medium.com/
