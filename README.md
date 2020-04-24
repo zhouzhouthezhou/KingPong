@@ -48,7 +48,7 @@ This project is based around a NodeJS server and Websocket.io (see app.js), and 
 * https://www.tutorialspoint.com/nodejs/nodejs_response_object.htm
 * https://github.com/Automattic/mongoose/issues/688
 * https://www.html5gamedevs.com/topic/20931-uncaught-typeerror-cannot-set-property-text-of-undefined/
-* https://stackoverflow.com/questions/41318354/mongodb-failed-to-connect-to-server-on-first-connect/48449732
+* https://stackoverflow.com/questions/41318354/mongodb-failed-to-connect-to-server-on-first-connect/48449732 \\
 And generally: 
 * https://phaser.io/
 * https://medium.com/
