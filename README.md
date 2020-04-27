@@ -1,6 +1,6 @@
 # KingPong
 
-Welcome to KingPong, the online multiplayer pong game. Everyone starts defending their own side with their paddle. Guard your side, because you won't last if your opponenent gains too much on you. If you or your opponent has more than 5 points than the other, the game ends, and you will be ranked against all players of the game.
+King Pong is an online multiplayer pong game. You log into a game with other people on one of two teams. The objective is simple, to defend your side from the ball. The opposing team will score a point if your team lets the ball through. If they get 5 points ahead of you, you lose and the game ends. We will then rank you on a global leaderboard.
 
 #### Authors
 * Antonio Narro
