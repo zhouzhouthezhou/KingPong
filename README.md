@@ -11,7 +11,7 @@ King Pong is an online multiplayer pong game. You log into a game with other peo
 * Talon Knowlton
 
 # Documentation
-This project is based around a NodeJS server and Websocket.io (see app.js), and the Phaser 3 game framework for the client side. MongoDB was used for the back-end to store user info such as their email, password, name, and highest score. The Mongoose API allows for the interaction between server-side and back-end. 
+King Pong uses NodeJS as the server infrastructure to create a standard RESTful site and Websocket.io inorder to implement the server-client interaction and enable different people to create different instances of the same game. The game itself was created using the Phaser 3 JavaScript game engine. We used MongoDB as the database architecture to store login information and highest score. The mongooseAPI was used to query from the database and generate the rankings for the leaderboard. The app was then deployed to Heroku for the public to enjoy. 
 
 Access using https://king-pong-csci3308.herokuapp.com/ your favorite web browser and wait for a friend (or foe) to join.
 
