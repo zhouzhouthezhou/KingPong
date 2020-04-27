@@ -15,7 +15,7 @@ This project is based around a NodeJS server and Websocket.io (see app.js), and 
 
 Access using https://king-pong-csci3308.herokuapp.com/ your favorite web browser and wait for a friend (or foe) to join.
 
-Expirimental N-gon implementation can be found in the ``ngondev`` branch.
+Experimental N-gon implementation can be found in the ``ngondev`` branch.
 
 
 # Resources Referenced/Used for This Game
