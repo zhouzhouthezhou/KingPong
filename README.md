@@ -22,7 +22,7 @@ Game scripts and assets can be found under ``/src/public/game.html`` and ``/src/
 
 Signup, scorboard, and landing pages can befound in ``/src/public`` under their respective files.
 
-Testcases can befound through out the commit history and in the ``ngondev`` branch under ``src/examples`` and ``src/scripts``
+Test cases can befound through out the commit history and in the ``ngondev`` branch under ``src/examples`` and ``src/scripts``
 
 Experimental N-gon implementation can also be found in the ``ngondev`` branch.
 
