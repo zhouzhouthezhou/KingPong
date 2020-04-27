@@ -1,4 +1,6 @@
-# KingPong
+# KingPong 
+
+Project for CSCI 3309-Software Development Tools and Methods
 
 King Pong is an online multiplayer pong game. You log into a game with other people on one of two teams. The objective is simple, to defend your side from the ball. The opposing team will score a point if your team lets the ball through. If they get 5 points ahead of you, you lose and the game ends. We will then rank you on a global leaderboard.
 
@@ -13,9 +15,9 @@ King Pong is an online multiplayer pong game. You log into a game with other peo
 # Overview
 King Pong uses NodeJS as the server infrastructure to create a standard RESTful site and Websocket.io inorder to implement the server-client interaction and enable different people to create different instances of the same game. The game itself was created using the Phaser 3 JavaScript game engine. We used MongoDB as the database architecture to store login information and highest score. The mongooseAPI was used to query from the database and generate the rankings for the leaderboard. The app was then deployed to Heroku for the public to enjoy. 
 
-# Documentation
-Access using https://king-pong-csci3308.herokuapp.com/ your favorite web browser and wait for a friend (or foe) to join.
+The deployed application can be found using your favorite web broswer at https://king-pong-csci3308.herokuapp.com/. Wait for your friend (or foe) to join and play some pong!
 
+# Documentation
 NodeJS script and websocket.io implementation can be found under ``/src/app.js``.
 
 Game scripts and assets can be found under ``/src/public/game.html`` and ``/src/public/assets`` respectively.
@@ -25,6 +27,9 @@ Signup, scorboard, and landing pages can befound in ``/src/public`` under their 
 Test cases can befound through out the commit history and in the ``ngondev`` branch under ``src/examples`` and ``src/scripts``
 
 Experimental N-gon implementation can also be found in the ``ngondev`` branch.
+
+**Note:** If you wish to rebuild the project, you will need to create the ``/src/.env`` file and add your MongoDB connection URL as follows:
+``MONGO_CONNECTION_URL=[Your MongoDB connection URL]``
 
 
 # Resources Referenced/Used for This Game
