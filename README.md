@@ -11,7 +11,9 @@ Welcome to KingPong, the online multiplayer pong game. Everyone starts defending
 * Talon Knowlton
 
 # Documentation
-This project is based around a NodeJS server and Websocket.io (see app.js), and the Phaser 3 game framework for the client side. MongoDB was used for the back-end to store user info such as their email, password, name, and highest score. The Mongoose API allows for the interaction between server-side and back-end. Access using https://king-pong-csci3308.herokuapp.com/ your favorite web browser and wait for a friend (or foe) to join.
+This project is based around a NodeJS server and Websocket.io (see app.js), and the Phaser 3 game framework for the client side. MongoDB was used for the back-end to store user info such as their email, password, name, and highest score. The Mongoose API allows for the interaction between server-side and back-end. 
+
+Access using https://king-pong-csci3308.herokuapp.com/ your favorite web browser and wait for a friend (or foe) to join.
 
 
 # Resources Referenced/Used for This Game
